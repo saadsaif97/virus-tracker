@@ -52,7 +52,7 @@ const CountryStats = () => {
       setFetching(false)
     }
     getData(country)
-  }, [country])
+  }, [country, countriesWithCode])
 
   function renderResults() {
     if (fetching) {

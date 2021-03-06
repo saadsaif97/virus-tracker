@@ -5,6 +5,8 @@ import FormControl from '@material-ui/core/FormControl'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import FormLabel from '@material-ui/core/FormLabel'
 import { getCountriesWithAlpha2Code } from '../apis/coutries'
+import DoughnetGraph from './DoughnetGraph'
+import { Grid } from '@material-ui/core'
 
 const CountryStats = () => {
   const [fetching, setFetching] = useState(false)
@@ -73,7 +75,18 @@ const CountryStats = () => {
         </div>
       )
     } else {
-      return <Stats data={data} />
+      return (
+        <>
+          <Grid container>
+            <Grid item xs={12} md={6}>
+              <Stats data={data} />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <DoughnetGraph data={data} />
+            </Grid>
+          </Grid>
+        </>
+      )
     }
   }
 

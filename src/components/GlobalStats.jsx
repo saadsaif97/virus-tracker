@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Skeleton from '@material-ui/lab/Skeleton'
+import { Grid } from '@material-ui/core'
+
 import Stats from './Stats'
+import DoughnetGraph from './DoughnetGraph'
 
 const GlobalStats = () => {
   const [data, setData] = useState({})
@@ -23,7 +26,14 @@ const GlobalStats = () => {
     return (
       <>
         <h1>Global Stats</h1>
-        <Stats data={data} />
+        <Grid container>
+          <Grid item xs={12} md={6}>
+            <Stats data={data} />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <DoughnetGraph data={data} />
+          </Grid>
+        </Grid>
       </>
     )
   } else {

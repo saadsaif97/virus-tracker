@@ -9,8 +9,19 @@ import { getCountriesWithAlpha2Code } from '../apis/coutries'
 const CountryStats = () => {
   const [fetching, setFetching] = useState(false)
   const [country, setCountry] = useState('PK')
+  const [flag, setFlag] = useState('https://restcountries.eu/data/pak.svg')
   const [data, setData] = useState(undefined)
-  const [countriesWithCode, setCountriesCode] = useState([['Pakistan', 'PK']])
+  const [countriesWithCode, setCountriesCode] = useState([
+    ['Pakistan', 'PK', 'https://restcountries.eu/data/pak.svg'],
+  ])
+
+  // useEffect(() => {
+  //   async function setFlag() {
+  //     const flag = await getFlag('PK')
+  //     setFlag(flag)
+  //   }
+  //   setFlag()
+  // }, [])
 
   useEffect(() => {
     async function setCountries() {
@@ -32,6 +43,12 @@ const CountryStats = () => {
       } else if (response.status === 404) {
         setData(undefined)
       }
+
+      const countryFlag = countriesWithCode.filter(
+        (c) => c[1] === country
+      )[0][2]
+      setFlag(countryFlag)
+
       setFetching(false)
     }
     getData(country)
@@ -82,6 +99,13 @@ const CountryStats = () => {
     <div>
       <h1>Country Stats</h1>
       <h1>{country}</h1>
+      <span>
+        <img
+          src={flag}
+          style={{ height: '40px', marginBottom: '30px' }}
+          alt='country flag'
+        />
+      </span>
       <form>
         <FormControl>
           <FormLabel>Select Country</FormLabel>

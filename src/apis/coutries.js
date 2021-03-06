@@ -5,8 +5,8 @@ export async function getCountriesWithAlpha2Code() {
     const countries = await data.map((country) => [
       country.name,
       country.alpha2Code,
+      country.flag,
     ])
-
     return countries
   } catch (e) {
     console.log(e)

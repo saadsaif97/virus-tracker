@@ -18,7 +18,7 @@ body {
   justify-content: space-between;
 }
 
-.stats h1 span {
+.stats h2 span {
   padding: 5px 10px;
   border-radius: 10px;
 }

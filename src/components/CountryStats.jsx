@@ -17,14 +17,6 @@ const CountryStats = () => {
     ['Pakistan', 'PK', 'https://restcountries.eu/data/pak.svg'],
   ])
 
-  // useEffect(() => {
-  //   async function setFlag() {
-  //     const flag = await getFlag('PK')
-  //     setFlag(flag)
-  //   }
-  //   setFlag()
-  // }, [])
-
   useEffect(() => {
     async function setCountries() {
       const countries = await getCountriesWithAlpha2Code()
@@ -70,7 +62,7 @@ const CountryStats = () => {
             <span role='img' aria-label='sheep'>
               😒
             </span>
-            <span> Sorry, our virus api has not result for this country</span>
+            <span> Sorry, our virus api has no result for this country</span>
           </h1>
         </div>
       )
